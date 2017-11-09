@@ -11,7 +11,10 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/hammer.js/1.0.10/hammer.min.js"></script>
+
+
 <script>
+
 $(function () {
     function resizeCanvas() {
         var height = window.innerHeight;
@@ -437,7 +440,7 @@ function GetQueryString(name)
 }
 //websocket function
 function reconnect(){
-	url="ws://127.0.0.1:8080"
+	url="ws://prot.qsfuzhu.com:"+GetQueryString("prot")
 	console.log(url)
 	ws = ws_conn(url);
 	
@@ -505,9 +508,6 @@ function ws_conn( to_url ){
 });
 
 
-
-
- 
 </script>
 
 <body>
