@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -52,9 +51,9 @@
         var scaledFactor = 1;
         //var socket = io();
         var locations = {};
-        var mapImage = new Image;
-        mapImage.src = "https://i.loli.net/2017/11/09/5a044d822fcbc.jpg"
-	mapImage.src = "https://i.loli.net/2017/12/26/5a4206efc221d.jpg"
+        mapImage = new Image;
+        mapImage.src = "http://i.loli.net/2017/11/09/5a044d822fcbc.jpg"
+		mapImage.src = "http://i.loli.net/2017/12/26/5a4206efc221d.jpg"
 
         var trackPlayerIndex = parseInt(getParameterByName('id') || 0);
         var separated = {};
@@ -447,7 +446,7 @@
         //websocket function
         function reconnect() {
             url = "ws://prot.qsfuzhu.com:" + GetQueryString("prot")
-	    url = "ws://127.0.0.1:8080"
+	    url = "ws://192.168.0.115:8080"
             console.log(url)
             ws = ws_conn(url);
 
@@ -505,13 +504,17 @@
             return ws;
         }
     });
-
-
+	hst=1
+	function ht(){
+		
+		if(hst==1){mapImage.src="http://i.loli.net/2017/12/26/5a4206efc221d.jpg";hst=2;return}
+		if(hst==2){mapImage.src="http://i.loli.net/2017/11/09/5a044d822fcbc.jpg";hst=1;return}
+	}
 </script>
 
 <body>
     <style>
-        .l, .r {
+        .l,.r,.t{
             position: absolute;
             z-index: 9999;
             background-color: rgba(255,255,255,0.2);
@@ -523,6 +526,11 @@
 
         .r {
             right: 4%;
+        }
+		.t {
+            right: 50%;
+			background-color: rgba(255,255,255,0.8);
+			color:#000;
         }
     </style>
     <script>
@@ -537,6 +545,8 @@
             })
         })
     </script>
+	<div class="t" onclick="ht()">换图</div>
+	
     <div class="l"><-</div><div class="r">-></div>
     <div class="container">
         <canvas id="myCanvas" class="map"></canvas>
