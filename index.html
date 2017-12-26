@@ -54,6 +54,8 @@
         var locations = {};
         var mapImage = new Image;
         mapImage.src = "https://i.loli.net/2017/11/09/5a044d822fcbc.jpg"
+	mapImage.src = "https://i.loli.net/2017/12/26/5a4206efc221d.jpg"
+
         var trackPlayerIndex = parseInt(getParameterByName('id') || 0);
         var separated = {};
         var viewPointOffset = {
@@ -445,7 +447,9 @@
         //websocket function
         function reconnect() {
             url = "ws://prot.qsfuzhu.com:" + GetQueryString("prot")
-             ws = ws_conn(url);
+	    url = "ws://127.0.0.1:8080"
+            console.log(url)
+            ws = ws_conn(url);
 
         }
 
